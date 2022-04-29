@@ -10,8 +10,8 @@ import json
 service_name = 's3'
 endpoint_url = 'https://kr.object.ncloudstorage.com'
 region_name = 'kr-standard'
-access_key = 'fMwo4ZlCS60SGzwjoxb1'
-secret_key = 'kb0CgwTfxQi6uhvdfaT1yxgysOsCZnMbD6xTdC8G'
+access_key = '{OWN_ACCESS_KEY}'
+secret_key = '{OWN_SECRET_KEY}'
 
 video_list = []
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     s3 = boto3.client(service_name, endpoint_url=endpoint_url, aws_access_key_id=access_key,
                       aws_secret_access_key=secret_key)
 
-    bucket_name = 'static-site-test-bucket'
+    bucket_name = '{OWN_BUCKET_NAME}'
 
     # list all in the bucket
     max_keys = 300
@@ -49,6 +49,7 @@ s = str(int(delt))
 
 
 # 얼굴 탐지 모델 가중치
+# 용량 문제로 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
 cascade_default_path = "xml/haarcascade_frontalface_default.xml"
